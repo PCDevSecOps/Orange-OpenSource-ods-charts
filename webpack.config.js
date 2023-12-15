@@ -1,16 +1,14 @@
-const path = require('path');
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const defaultConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
     main: './index.ts',
-  },
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'ods-charts.js',
-    libraryTarget: 'umd',
-    library: 'ODSCharts',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -24,3 +22,30 @@ module.exports = {
     ],
   },
 };
+
+export default [
+  {
+    ...defaultConfig,
+    output: {
+      path: path.resolve(__dirname, './dist'),
+      filename: 'ods-charts.js',
+      library: {
+        type: 'umd',
+        name: 'ODSCharts',
+      },
+    },
+  },
+  {
+    ...defaultConfig,
+    output: {
+      path: path.resolve(__dirname, './dist'),
+      filename: 'ods-charts-module.js',
+      library: {
+        type: 'module',
+      },
+    },
+    experiments: {
+      outputModule: true,
+    },
+  },
+];

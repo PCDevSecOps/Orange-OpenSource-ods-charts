@@ -8,7 +8,8 @@
   "files": [
     "./dist/**/*"
   ],
-  "main": "./dist/ods-charts.js",
+  "type": "module",
+  "main": "./dist/ods-charts-module.js",
   "types": "./dist/ods-charts.d.js",
   "scripts": {
     "build": "webpack",
@@ -29,5 +30,8 @@
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@types/echarts": "^4.9.22"
   }
 }
