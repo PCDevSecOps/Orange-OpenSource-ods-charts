@@ -1,8 +1,4 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const path = require('path');
 
 const defaultConfig = {
   mode: 'development',
@@ -23,7 +19,7 @@ const defaultConfig = {
   },
 };
 
-export default [
+module.exports = [
   {
     ...defaultConfig,
     output: {
@@ -39,7 +35,7 @@ export default [
     ...defaultConfig,
     output: {
       path: path.resolve(__dirname, './dist'),
-      filename: 'ods-charts-module.js',
+      filename: 'ods-charts.esm.js',
       library: {
         type: 'module',
       },

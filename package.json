@@ -8,8 +8,8 @@
   "files": [
     "./dist/**/*"
   ],
-  "type": "module",
-  "main": "./dist/ods-charts-module.js",
+  "main": "./dist/ods-charts.js",
+  "module": "./dist/ods-charts.esm.js",
   "types": "./dist/ods-charts.d.js",
   "scripts": {
     "build": "webpack",
